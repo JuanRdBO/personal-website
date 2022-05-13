@@ -1,7 +1,9 @@
+import { GlobalStyles } from "@mui/material";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { MainContent } from "../components/MainContent/MainContent";
-import { MainHeader } from "../components/MainHeader/mainHeader";
+import { MainHeader } from "../components/MainHeader/MainHeader";
+import { MainNav } from "../components/MainNav/MainNav";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -27,49 +29,24 @@ const Home: NextPage = () => {
 
   return (
     <div id="app">
+      <GlobalStyles
+        styles={{
+          "*::-webkit-scrollbar": {
+            width: "0em",
+          },
+          "*::-webkit-scrollbar-track": {
+            "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+          },
+          "*::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgba(0,0,0,.1)",
+            outline: "0px solid slategrey",
+            borderRadius: "15px",
+          },
+        }}
+      />
       <div className={`${styles.bg} ${bgStyle}`}>
         <header>
-          <nav>
-            <ul>
-              <li>
-                <a
-                  className={styles.linkBio}
-                  href="#bio"
-                  onClick={() => {
-                    console.log(`Styles bio: ${styles.bio} `);
-                    setPageNo(0);
-                  }}
-                >
-                  Bio
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.linkProjects}
-                  style={{ color: "black" }}
-                  href="#projects"
-                  onClick={() => {
-                    console.log(`Styles proj: ${styles.projects}`);
-                    setPageNo(1);
-                  }}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.linkFindMe}
-                  href="#findme"
-                  onClick={() => {
-                    console.log(`Styles findMe: ${styles.findMe}`);
-                    setPageNo(2);
-                  }}
-                >
-                  Find Me
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <MainNav setPageNo={setPageNo} />
           <div className={`${styles.transition} ${styles.transitionBio}`}></div>
           <div
             className={`${styles.transition} ${styles.transitionProjects}`}
