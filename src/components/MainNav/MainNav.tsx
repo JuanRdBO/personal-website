@@ -1,3 +1,7 @@
+import { Button } from "@mui/material";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useState, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 import styles from "./MainNav.module.scss";
 
 interface MainNavProps {
@@ -5,12 +9,29 @@ interface MainNavProps {
 }
 
 export function MainNav(props: MainNavProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const WalletButton = () => {
+    return <WalletMultiButton className={`${styles.linkBio1} `} />;
+  };
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <a
-            className={styles.linkBio}
+    <div>
+      <nav>
+        <div
+          style={{
+            minWidth: "98vw",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Button
+            className={`${styles.mainNav} ${styles.linkBio}`}
+            style={{
+              minWidth: "7.5rem",
+            }}
             href="#bio"
             onClick={() => {
               console.log(`Styles bio: ${styles.bio} `);
@@ -18,34 +39,38 @@ export function MainNav(props: MainNavProps) {
             }}
           >
             Bio
-          </a>
-        </li>
-        <li>
-          <a
-            className={styles.linkProjects}
-            style={{ color: "black" }}
-            href="#projects"
+          </Button>
+          <Button
+            className={`${styles.mainNav} ${styles.linkProjects}`}
+            style={{
+              minWidth: "7.5rem",
+            }}
+            href="#bio"
             onClick={() => {
-              console.log(`Styles proj: ${styles.projects}`);
+              console.log(`Styles bio: ${styles.bio} `);
               props.setPageNo(1);
             }}
           >
             Projects
-          </a>
-        </li>
-        <li>
-          <a
-            className={styles.linkFindMe}
-            href="#findme"
+          </Button>
+          <Button
+            className={`${styles.mainNav} ${styles.linkFindMe}`}
+            style={{
+              minWidth: "7.5rem",
+              marginRight: "auto",
+            }}
+            href="#bio"
             onClick={() => {
-              console.log(`Styles findMe: ${styles.findMe}`);
+              console.log(`Styles bio: ${styles.bio} `);
               props.setPageNo(2);
             }}
           >
             Find Me
-          </a>
-        </li>
-      </ul>
-    </nav>
+          </Button>
+          {!isMobile && <WalletButton />}
+        </div>
+        {isMobile && <WalletButton />}
+      </nav>
+    </div>
   );
 }

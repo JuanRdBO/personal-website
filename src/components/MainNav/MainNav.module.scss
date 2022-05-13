@@ -27,7 +27,14 @@
   z-index: 100;
   background: var(--purple-brown);
   background-color: var(--purple-brown);
+  color: var(--egg-shell);
 }
+
+.linkBio:hover {
+  animation: buttnhover 1s infinite;
+  background-color: var(--dark-peach);
+}
+
 .bio h3 {
   background-color: var(--dark-peach);
 }
@@ -35,7 +42,15 @@
 .projects,
 .linkProjects {
   background: var(--egg-shell);
+  color: var(--purple-brown);
 }
+
+.linkProjects:hover {
+  animation: buttnhover 1s infinite;
+  background-color: var(--purple-brown);
+  color: var(--egg-shell);
+}
+
 .projects h3 {
   background-color: var(--dark-peach);
   background-position: -120px 15%, 230px 20%, -100px 3vw;
@@ -44,7 +59,15 @@
 .findMe,
 .linkFindMe {
   background: var(--dark-peach);
+  color: var(--egg-shell);
 }
+
+.linkFindMe:hover {
+  animation: buttnhover 1s infinite;
+  background-color: var(--purple-brown);
+  color: var(--egg-shell);
+}
+
 .findMe h3 {
   background-color: var(--egg-shell);
   background-position: -240px 15%, 260px 25%, -150px 1vw;
@@ -91,4 +114,27 @@
 }
 .findMe .transitionFindMe {
   transform: scale(1) translateX(-15rem);
+}
+
+// Main nav
+
+.mainNav {
+  padding: 0.75rem 0 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.875rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 3rem !important;
+  border-radius: 0px;
+
+  text-align: center;
+}
+
+.mainNav--end {
+  margin-left: auto;
 }

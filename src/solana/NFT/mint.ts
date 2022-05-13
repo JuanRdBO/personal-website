@@ -5,7 +5,10 @@ import {
   SystemProgram,
   Transaction,
   LAMPORTS_PER_SOL,
+  sendAndConfirmTransaction,
 } from "@solana/web3.js";
+import * as anchor from "@project-serum/anchor";
+
 import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
@@ -32,6 +35,10 @@ import {
   createMasterEditionInstruction,
 } from "./utils/utils";
 import { Wallet } from "@project-serum/anchor";
+import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
+import { WalletContextState } from "@solana/wallet-adapter-react";
+import { useMemo } from "react";
+import { sendTransaction, sendTransactionWithRetry } from "./utils/connection";
 
 const METAPLEX_PROGRAM_ID = new PublicKey(
   "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
@@ -41,16 +48,20 @@ function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function beginMintNFT(destinationUser: Wallet) {
-  let connection: Connection = new Connection(SOLANA_MAINNET, "confirmed");
+export async function beginMintNFT(destinationUser: WalletContextState) {
+  if (!destinationUser.publicKey) {
+    throw new Error("No user found");
+  }
 
-  let creator = new Keypair();
+  console.log(`User: ${destinationUser.publicKey}`);
+
+  let connection: Connection = new Connection(SOLANA_MAINNET, "confirmed");
 
   await delay(1000);
 
   const creators = [
     new Creator({
-      address: creator.publicKey.toString(),
+      address: destinationUser.publicKey.toBase58(),
       share: 100,
       verified: 1,
     }),
@@ -64,16 +75,34 @@ export async function beginMintNFT(destinationUser: Wallet) {
     creators,
   });
 
-  await mintNFT(connection, creator, destinationUser.publicKey, data);
+  await mintNFT(connection, destinationUser, data);
 }
 
 async function mintNFT(
   connection: Connection,
-  creator: Keypair,
-  user: PublicKey,
+  creator: WalletContextState,
   data: Data
 ): Promise<void> {
   const mint = new Keypair();
+
+  /*   const anchorWallet = useMemo(() => {
+    if (
+      !creator ||
+      !creator.publicKey ||
+      !creator.signAllTransactions ||
+      !creator.signTransaction
+    ) {
+      return;
+    }
+
+    return {
+      publicKey: creator.publicKey,
+      signAllTransactions: creator.signAllTransactions,
+      signTransaction: creator.signTransaction,
+    } as anchor.Wallet;
+  }, [creator]); */
+
+  if (!creator.publicKey) throw new Error("No user found");
 
   // Allocate memory for the account
   const mintRent = await connection.getMinimumBalanceForRentExemption(
@@ -99,7 +128,10 @@ async function mintNFT(
   );
 
   // Derive associated token account for user
-  const assoc = await getAssociatedTokenAddress(mint.publicKey, user);
+  const assoc = await getAssociatedTokenAddress(
+    mint.publicKey,
+    creator.publicKey
+  );
 
   // Create associated account for user
   const createAssocTokenAccountIx = createAssociatedTokenAccountInstruction(
@@ -107,7 +139,7 @@ async function mintNFT(
     TOKEN_PROGRAM_ID,
     mint.publicKey,
     assoc,
-    user,
+    creator.publicKey,
     creator.publicKey
   );
 
@@ -176,21 +208,34 @@ async function mintNFT(
     buffer
   );
 
-  let tx = new Transaction()
-    .add(createMintAccountIx)
-    .add(initMintIx)
-    .add(createAssocTokenAccountIx)
+  let tx = new Transaction().add(createMintAccountIx).add(initMintIx);
+  /*     .add(createAssocTokenAccountIx)
     .add(mintToIx)
     .add(createMetadataIx)
-    .add(createMasterEditionIx);
+    .add(createMasterEditionIx); */
 
-  const recent = await connection.getRecentBlockhash();
+  const recent = await connection.getLatestBlockhash();
   tx.recentBlockhash = recent.blockhash;
   tx.feePayer = creator.publicKey;
 
-  tx.sign(mint, creator);
+  /*   if (!tx || creator.signTransaction) throw new Error("No user found"); */
 
-  const txSignature = await connection.sendRawTransaction(tx.serialize());
+  tx.sign(mint);
 
-  console.log(txSignature);
+  console.log(`Transaction: ${JSON.stringify(tx)}`);
+
+  const txSig = await sendTransactionWithRetry(
+    connection,
+    creator,
+    tx.instructions,
+    [mint],
+    "confirmed"
+  );
+
+  /* const txSignature = await creator.sendTransaction(tx, connection); */
+  /*   creator.signTransaction(tx);
+
+  const txSignature = await connection.sendRawTransaction(tx.serialize()); */
+
+  console.log(txSig);
 }
