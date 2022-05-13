@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { MainContent } from "../components/mainContent";
+import { MainContent } from "../components/MainContent/mainContent";
 import { MainHeader } from "../components/MainHeader/mainHeader";
 import styles from "../styles/Home.module.scss";
 

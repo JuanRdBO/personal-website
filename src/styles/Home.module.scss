@@ -24,7 +24,9 @@
 
 .bio,
 .linkBio {
+  z-index: 100;
   background: var(--purple-brown);
+  background-color: var(--purple-brown);
 }
 .bio h1 {
   background-color: var(--dark-peach);
