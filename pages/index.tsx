@@ -75,22 +75,16 @@ const Home: NextPage = () => {
           <div
             className={`${styles.transition} ${styles.transitionFindMe}`}
           ></div>
-          <h1>Header</h1>
+          <h1>JoanRdBO</h1>
         </header>
         <div className={`${styles.dots} ${styles.dots1}`}></div>
         <div className={`${styles.dots} ${styles.dots2}`}></div>
         <main>
-          {pageNo == 0 && <p key="bio">{"Hi! I'm a bio page."}</p>}
-          {pageNo == 1 && <p key="projects">This is a projects page.</p>}
-          {pageNo == 2 && (
-            <p key="find-me">
-              See{" "}
-              <a href="https://pehaa.com" target="_blank" rel="noreferrer">
-                pehaa.com
-              </a>{" "}
-              for the complete website (built with Nuxt.js).
-            </p>
+          {pageNo == 0 && <p key="bio">{"Hi! I'm the bio page"}</p>}
+          {pageNo == 1 && (
+            <p key="projects">{"This will maybe be a projects page."}</p>
           )}
+          {pageNo == 2 && <p key="find-me">{"Another page???"}</p>}
         </main>
       </div>
     </div>
