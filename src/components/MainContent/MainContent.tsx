@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { CardTilt } from "../Cards/CardTilt";
 
 import styles from "./MainContent.module.scss";
@@ -13,6 +14,7 @@ export function MainContent(props: mainContentProps) {
   const Page1Content = () => {
     return (
       <div style={{ border: "2px solid green" }}>
+        <WalletMultiButton className="" />
         <div className={styles.mainContent} style={{ border: "2px solid red" }}>
           <p className={styles.mainContentHeader}>{"Projects"}</p>
           <p className={styles.mainContentSubHeader}>Bla bla bla</p>

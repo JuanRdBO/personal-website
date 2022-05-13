@@ -28,7 +28,7 @@
   background: var(--purple-brown);
   background-color: var(--purple-brown);
 }
-.bio h1 {
+.bio h3 {
   background-color: var(--dark-peach);
 }
 
@@ -36,7 +36,7 @@
 .linkProjects {
   background: var(--egg-shell);
 }
-.projects h1 {
+.projects h3 {
   background-color: var(--dark-peach);
   background-position: -120px 15%, 230px 20%, -100px 3vw;
 }
@@ -45,7 +45,7 @@
 .linkFindMe {
   background: var(--dark-peach);
 }
-.findMe h1 {
+.findMe h3 {
   background-color: var(--egg-shell);
   background-position: -240px 15%, 260px 25%, -150px 1vw;
 }
@@ -150,6 +150,6 @@
   }
 }
 
-// h1
+// h3
 
 // main transitions

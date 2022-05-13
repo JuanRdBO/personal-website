@@ -16,6 +16,8 @@ import {
 
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
+import "../styles/walletModal.scss";
+
 const ENDPOINTS = [
   {
     name: "mainnet-beta",

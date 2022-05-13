@@ -12,7 +12,7 @@ export function MainHeader() {
       }}
     >
       <Tilt className={styles.tiltBox}>
-        <h1>{"Joan"}</h1>
+        <h3>{"Joan"}</h3>
       </Tilt>
     </div>
   );
