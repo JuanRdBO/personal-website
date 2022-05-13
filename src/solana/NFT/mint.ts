@@ -135,12 +135,10 @@ async function mintNFT(
 
   // Create associated account for user
   const createAssocTokenAccountIx = createAssociatedTokenAccountInstruction(
-    ASSOCIATED_TOKEN_PROGRAM_ID,
-    TOKEN_PROGRAM_ID,
-    mint.publicKey,
+    creator.publicKey,
     assoc,
     creator.publicKey,
-    creator.publicKey
+    mint.publicKey
   );
 
   // Create mintTo ix; mint to user's associated account
@@ -208,11 +206,13 @@ async function mintNFT(
     buffer
   );
 
-  let tx = new Transaction().add(createMintAccountIx).add(initMintIx);
-  /*     .add(createAssocTokenAccountIx)
+  let tx = new Transaction()
+    .add(createMintAccountIx)
+    .add(initMintIx)
+    .add(createAssocTokenAccountIx)
     .add(mintToIx)
     .add(createMetadataIx)
-    .add(createMasterEditionIx); */
+    .add(createMasterEditionIx);
 
   const recent = await connection.getLatestBlockhash();
   tx.recentBlockhash = recent.blockhash;
