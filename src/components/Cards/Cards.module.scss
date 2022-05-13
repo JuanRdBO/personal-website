@@ -1,0 +1,73 @@
+.boxTransparent {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  box-shadow: 20px 20px 50px rgba(163, 153, 153, 0.5);
+  border-radius: 15px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  transform-style: preserve-3d;
+  transform: perspective(800px);
+
+  max-width: 240px !important;
+  max-height: 340px !important;
+
+  background: var(--egg-shell) !important;
+  box-shadow: 20px 20px 50px rgba(76, 73, 73, 0.5) !important;
+  justify-content: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.212);
+  border-left: 1px solid rgba(255, 255, 255, 0.212);
+  backdrop-filter: blur(5px);
+  transform-style: preserve-3d;
+  transform: perspective(800px);
+
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.hoverableIcon {
+  display: center;
+  width: 100%;
+}
+
+.hoverableIcon:hover {
+  animation: buttnhover 1s infinite;
+  color: #077099;
+}
+
+@keyframes buttnhover {
+  0% {
+    transform: translate3d(0, -0px, 0px);
+  }
+  /*   25% {
+      transform: translate3d(0, -5px, 10px);
+    } */
+  50% {
+    transform: translate3d(0, -10px, 20px);
+  }
+  /*   75% {
+      transform: translate3d(0, -5px, 10px);
+    } */
+  100% {
+    transform: translate3d(0, -0px, 0px);
+  }
+}

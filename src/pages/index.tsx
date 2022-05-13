@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
+import { MainContent } from "../components/mainContent";
+import { MainHeader } from "../components/MainHeader/mainHeader";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -75,16 +77,12 @@ const Home: NextPage = () => {
           <div
             className={`${styles.transition} ${styles.transitionFindMe}`}
           ></div>
-          <h1>JoanRdBO</h1>
+          <MainHeader />
         </header>
         <div className={`${styles.dots} ${styles.dots1}`}></div>
         <div className={`${styles.dots} ${styles.dots2}`}></div>
         <main>
-          {pageNo == 0 && <p key="bio">{"Hi! I'm the bio page"}</p>}
-          {pageNo == 1 && (
-            <p key="projects">{"This will maybe be a projects page."}</p>
-          )}
-          {pageNo == 2 && <p key="find-me">{"Another page???"}</p>}
+          <MainContent pageNo={pageNo} />
         </main>
       </div>
     </div>
