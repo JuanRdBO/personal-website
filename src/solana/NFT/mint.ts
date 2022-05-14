@@ -68,9 +68,9 @@ export async function beginMintNFT(destinationUser: WalletContextState) {
   ];
 
   const data = new Data({
-    symbol: "SYMBOL",
-    name: "My NFT",
-    uri: "https://arweave.net/FPGAv1XnyZidnqquOdEbSY6_ES735ckcDTdaAtI7GFw",
+    symbol: "JRBO",
+    name: "JuanRdBO",
+    uri: "https://arweave.net/m2KmunAmMkTEjeneFQrqyyytX4tbQd8sk_KajOM63Ew",
     sellerFeeBasisPoints: 100,
     creators,
   });
