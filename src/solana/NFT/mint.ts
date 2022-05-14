@@ -48,10 +48,14 @@ function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function beginMintNFT(destinationUser: WalletContextState) {
+export async function beginMintNFT(
+  destinationUser: WalletContextState,
+  setIsMinting: Function
+) {
   if (!destinationUser.publicKey) {
     throw new Error("No user found");
   }
+  setIsMinting(true);
 
   console.log(`User: ${destinationUser.publicKey}`);
 
@@ -75,32 +79,19 @@ export async function beginMintNFT(destinationUser: WalletContextState) {
     creators,
   });
 
-  await mintNFT(connection, destinationUser, data);
+  const txId = await mintNFT(connection, destinationUser, data);
+
+  setIsMinting(false);
+
+  return txId;
 }
 
 async function mintNFT(
   connection: Connection,
   creator: WalletContextState,
   data: Data
-): Promise<void> {
+): Promise<string> {
   const mint = new Keypair();
-
-  /*   const anchorWallet = useMemo(() => {
-    if (
-      !creator ||
-      !creator.publicKey ||
-      !creator.signAllTransactions ||
-      !creator.signTransaction
-    ) {
-      return;
-    }
-
-    return {
-      publicKey: creator.publicKey,
-      signAllTransactions: creator.signAllTransactions,
-      signTransaction: creator.signTransaction,
-    } as anchor.Wallet;
-  }, [creator]); */
 
   if (!creator.publicKey) throw new Error("No user found");
 
@@ -238,4 +229,6 @@ async function mintNFT(
   const txSignature = await connection.sendRawTransaction(tx.serialize()); */
 
   console.log(txSig);
+
+  return txSig.txid;
 }

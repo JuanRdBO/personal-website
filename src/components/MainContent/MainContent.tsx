@@ -1,7 +1,5 @@
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { beginMintNFT } from "../../solana/NFT/mint";
 import { CardTilt } from "../Cards/CardTilt";
 
 import styles from "./MainContent.module.scss";
@@ -15,33 +13,16 @@ export function MainContent(props: mainContentProps) {
 
   const wallet = useWallet();
 
-  const MintNftBtn = () => {
-    if (!wallet.publicKey) return null;
-
-    return (
-      <Button
-        onClick={() => {
-          if (!wallet.wallet) return;
-          return beginMintNFT(wallet);
-        }}
-      >
-        mint NFT
-      </Button>
-    );
-  };
-
   const Page1Content = () => {
     return (
-      <div style={{ border: "2px solid green" }}>
-        <div className={styles.mainContent} style={{ border: "2px solid red" }}>
+      <div>
+        <div className={styles.mainContent}>
           <p className={styles.mainContentHeader}>{"Projects"}</p>
           <p className={styles.mainContentSubHeader}>Bla bla bla</p>
         </div>
-        {wallet.publicKey && <MintNftBtn />}
         <Grid
           container
           style={{
-            border: "2px solid red",
             width: "90vw",
             justifyContent: "center",
             alignItems: "center",
