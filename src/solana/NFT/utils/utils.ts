@@ -6,7 +6,8 @@ import {
   SYSVAR_RENT_PUBKEY,
 } from "@solana/web3.js";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { Wallet } from "@project-serum/anchor";
+import { Wallet } from "@solana/wallet-adapter-react";
+import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 
 const TOKEN_METADATA_PROGRAM_ID = new PublicKey(
   "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
@@ -130,21 +131,3 @@ export function createMasterEditionInstruction(
 }
 
 // ----------------------------------------------
-
-export function getProvider(endpointUrl: string, wallet: Wallet) {
-  console.log(`💡​​ Connecting to ${endpointUrl}`);
-  const opts = {
-    preflightCommitment: "confirmed",
-  };
-  //@ts-ignore
-  const connection = new Connection(endpointUrl, opts.preflightCommitment);
-  const provider = new anchor.Provider(
-    //@ts-ignore
-    connection,
-    //@ts-ignore
-    new anchor.Wallet(wallet),
-    //@ts-ignore
-    opts.preflightCommitment
-  );
-  return provider;
-}
