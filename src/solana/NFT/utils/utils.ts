@@ -6,6 +6,7 @@ import {
   SYSVAR_RENT_PUBKEY,
 } from "@solana/web3.js";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
+import { Wallet } from "@project-serum/anchor";
 
 const TOKEN_METADATA_PROGRAM_ID = new PublicKey(
   "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
@@ -130,7 +131,7 @@ export function createMasterEditionInstruction(
 
 // ----------------------------------------------
 
-export function getProvider(endpointUrl: string, wallet: anchor.Wallet) {
+export function getProvider(endpointUrl: string, wallet: Wallet) {
   console.log(`💡​​ Connecting to ${endpointUrl}`);
   const opts = {
     preflightCommitment: "confirmed",
