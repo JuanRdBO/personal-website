@@ -4,13 +4,9 @@ import {
   PublicKey,
   SystemProgram,
   Transaction,
-  LAMPORTS_PER_SOL,
-  sendAndConfirmTransaction,
 } from "@solana/web3.js";
-import * as anchor from "@project-serum/anchor";
 
 import {
-  ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
   MintLayout,
   getAssociatedTokenAddress,
@@ -34,11 +30,8 @@ import {
   createMetadataInstruction,
   createMasterEditionInstruction,
 } from "./utils/utils";
-import { Wallet } from "@project-serum/anchor";
-import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { WalletContextState } from "@solana/wallet-adapter-react";
-import { useMemo } from "react";
-import { sendTransaction, sendTransactionWithRetry } from "./utils/connection";
+import { sendTransactionWithRetry } from "./utils/connection";
 
 const METAPLEX_PROGRAM_ID = new PublicKey(
   "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
