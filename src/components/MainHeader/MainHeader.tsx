@@ -40,14 +40,24 @@ export function MainHeader() {
         className={styles.tiltBox}
         style={{ display: "grid", justifyItems: "center" }}
       >
-        <h3>{"Joan"}</h3>
+        <h3
+          onClick={async () => {
+            if (!wallet.wallet) {
+              console.log(`WalletNotConnected: ${walletModal.visible}`);
+              return walletModal.setVisible(true);
+            }
+          }}
+        >
+          {"Joan"}
+        </h3>
         {wallet.connected && (
           <Button
             className={styles.mintNFTButton}
             style={{
               position: "absolute",
+              marginTop: isMobile ? "0%" : "10%",
               minWidth: "40vw",
-              minHeight: "20vh",
+              minHeight: isMobile ? "20vh" : "40vh",
               borderRadius: "15px",
               fontSize: "calc(5vw + 1rem)",
             }}

@@ -15,7 +15,11 @@ export function MainContent(props: mainContentProps) {
 
   const Page1Content = () => {
     return (
-      <div>
+      <div
+        style={{
+          marginTop: "20px",
+        }}
+      >
         <div className={styles.mainContent}>
           <p className={styles.mainContentHeader}>{"Projects"}</p>
           <p className={styles.mainContentSubHeader}>Bla bla bla</p>
