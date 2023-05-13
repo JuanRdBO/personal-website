@@ -26,8 +26,8 @@ const MortphText = (props: any) => {
   }, []);
 
   useEffect(() => {
-    setMounted(true);
     animate();
+    setMounted(true);
   }, []);
 
   const [mounted, setMounted] = useState(false);
@@ -115,11 +115,14 @@ const MortphText = (props: any) => {
   return (
     <div
       style={{
+        // border: "1px solid red",
         // background: "red",
         display: "flex",
+        flex: 1,
         flexDirection: "row" /* , justify-content: center,align-items: center  */,
         justifyContent: "center",
         alignItems: "center",
+        width: "30%",
       }}
     >
       <div
