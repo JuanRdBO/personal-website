@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import styles from "./MainNav.module.scss";
@@ -12,10 +11,6 @@ export function MainNav(props: MainNavProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
-
-  const WalletButton = () => {
-    return <WalletMultiButton className={`${styles.linkBio1} `} />;
-  };
 
   return (
     <div>
@@ -67,9 +62,7 @@ export function MainNav(props: MainNavProps) {
           >
             Find Me
           </Button>
-          {!isMobile && <WalletButton />}
         </div>
-        {isMobile && <WalletButton />}
       </nav>
     </div>
   );

@@ -48,12 +48,8 @@ const Home: NextPage = () => {
         <header>
           <MainNav setPageNo={setPageNo} />
           <div className={`${styles.transition} ${styles.transitionBio}`}></div>
-          <div
-            className={`${styles.transition} ${styles.transitionProjects}`}
-          ></div>
-          <div
-            className={`${styles.transition} ${styles.transitionFindMe}`}
-          ></div>
+          <div className={`${styles.transition} ${styles.transitionProjects}`}></div>
+          <div className={`${styles.transition} ${styles.transitionFindMe}`}></div>
           <MainHeader />
         </header>
         <div className={`${styles.dots} ${styles.dots1}`}></div>

@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import { useWallet } from "@solana/wallet-adapter-react";
 import { CardTilt } from "../Cards/CardTilt";
+import MortphText from "../MortphText";
 
 import styles from "./MainContent.module.scss";
 
@@ -11,8 +11,6 @@ interface mainContentProps {
 export function MainContent(props: mainContentProps) {
   const pageNo = props.pageNo;
 
-  const wallet = useWallet();
-
   const Page1Content = () => {
     return (
       <div
@@ -21,8 +19,10 @@ export function MainContent(props: mainContentProps) {
         }}
       >
         <div className={styles.mainContent}>
-          <p className={styles.mainContentHeader}>{"Projects"}</p>
-          <p className={styles.mainContentSubHeader}>Bla bla bla</p>
+          <p className={styles.mainContentHeader}>{"Bio"}</p>
+          <p className={styles.mainContentSubHeader}>
+            <MortphText />
+          </p>
         </div>
         <Grid
           container
@@ -32,7 +32,7 @@ export function MainContent(props: mainContentProps) {
             alignItems: "center",
           }}
         >
-          <Grid item>
+          {/*           <Grid item>
             <CardTilt
               textHeader="Decaf"
               textSubHeader="Lorem ipsum bla bla words more words. Stuff💫"
@@ -59,7 +59,7 @@ export function MainContent(props: mainContentProps) {
               link2="http://nedgam.es/wp-content/uploads/2014/09/no-opensource.png"
               icon2="https://cdn-icons-png.flaticon.com/512/25/25231.png"
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
     );
@@ -76,9 +76,7 @@ export function MainContent(props: mainContentProps) {
       }}
     >
       {pageNo == 0 && <Page1Content />}
-      {pageNo == 1 && (
-        <p key="projects">{"This will maybe be a projects page."}</p>
-      )}
+      {pageNo == 1 && <p key="projects">{"This will maybe be a projects page."}</p>}
       {pageNo == 2 && <p key="find-me">{"Another page???"}</p>}
     </div>
   );
