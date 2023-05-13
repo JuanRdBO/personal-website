@@ -118,7 +118,6 @@ const MortphText = (props: any) => {
         // border: "1px solid red",
         // background: "red",
         display: "flex",
-        flex: 1,
         flexDirection: "row" /* , justify-content: center,align-items: center  */,
         justifyContent: "center",
         alignItems: "center",
