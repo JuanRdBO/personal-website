@@ -1,11 +1,11 @@
 .container {
   /* Center the text in the viewport. */
-  position: absolute;
-  margin: auto;
-  width: 100vw;
-  height: 80pt;
+  /* position: absolute; */
+  //   margin: auto;
+  //   width: auto;
+  /* height: 80pt;
   top: 0;
-  bottom: 0;
+  bottom: 0; */
 
   /* This filter is a lot of the magic, try commenting it out to see how the morphing works! */
   filter: url(#threshold) blur(0.6px);
@@ -17,8 +17,8 @@
   width: 100%;
   display: inline-block;
 
-  font-family: "Raleway", sans-serif;
-  font-size: 40pt;
+  //   font-family: "Raleway", sans-serif;
+  //   font-size: 40pt;
 
   text-align: center;
 

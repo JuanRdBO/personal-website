@@ -13,4 +13,8 @@
 .mainContentSubHeader {
   font-size: calc(3vw + 1rem);
   margin: 0;
+
+  flex-direction: "row";
+  justify-content: center;
+  align-items: center;
 }

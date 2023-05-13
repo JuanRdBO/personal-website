@@ -12,7 +12,7 @@ const MortphText = (props: any) => {
   const texts = ["software", "websites", "apps"];
 
   // Controls the speed of morphing.
-  const morphTime = 1;
+  const morphTime = 2;
   const cooldownTime = 0.25;
 
   let textIndex = texts.length - 1;
@@ -23,14 +23,15 @@ const MortphText = (props: any) => {
   useEffect(() => {
     setText1(texts[textIndex % texts.length]);
     setText2(texts[(textIndex + 1) % texts.length]);
-  }, [textIndex]);
+  }, []);
 
   useEffect(() => {
+    setMounted(true);
     animate();
   }, []);
 
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  //   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
   function doMorph() {
@@ -112,8 +113,25 @@ const MortphText = (props: any) => {
   }
 
   return (
-    <>
-      <div id="container" className={`${styles.container}`}>
+    <div
+      style={{
+        // background: "red",
+        display: "flex",
+        flexDirection: "row" /* , justify-content: center,align-items: center  */,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        id="container"
+        className={`${styles.container}`}
+        style={{
+          display: "flex",
+          flexDirection: "row" /* , justify-content: center,align-items: center  */,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <span id="text1" className={`${styles.text1}`} style={text1Style}>
           {text1}
         </span>
@@ -136,7 +154,7 @@ const MortphText = (props: any) => {
           </filter>
         </defs>
       </svg>
-    </>
+    </div>
   );
 };
 

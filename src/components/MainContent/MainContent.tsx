@@ -20,7 +20,16 @@ export function MainContent(props: mainContentProps) {
       >
         <div className={styles.mainContent}>
           <p className={styles.mainContentHeader}>{"Bio"}</p>
-          <p className={styles.mainContentSubHeader}>
+          <p
+            className={styles.mainContentSubHeader}
+            style={{
+              display: "flex",
+              flexDirection: "row" /* , justify-content: center,align-items: center  */,
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ paddingRight: "10px" }}>{"I write"}</div>
             <MortphText />
           </p>
         </div>
