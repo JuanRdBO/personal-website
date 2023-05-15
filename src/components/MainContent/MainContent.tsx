@@ -33,6 +33,12 @@ export function MainContent(props: mainContentProps) {
             <div style={{ paddingRight: "10px" }}>{"I write"}</div>
             <MortphText texts={["software", "websites", "apps"]} />
           </div>
+
+          <div className={styles.mainContentNormalText}>
+            {
+              "I'm Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines from web and app design/ coding, branding and database management/ optimisation."
+            }
+          </div>
         </div>
       </div>
     );
