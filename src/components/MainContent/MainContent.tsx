@@ -31,8 +31,23 @@ export function MainContent(props: mainContentProps) {
             }}
           >
             <div style={{ paddingRight: "10px" }}>{"I write"}</div>
-            <MortphText />
+            <MortphText texts={["software", "websites", "apps"]} />
           </div>
+        </div>
+      </div>
+    );
+  };
+
+  const Page3Content = () => {
+    return (
+      <div
+        style={{
+          marginTop: "20px",
+          width: "100vw",
+        }}
+      >
+        <div className={styles.mainContent}>
+          <p className={`${styles.mainContentHeader} ${styles.textBrown}`}>{"Blog"}</p>
         </div>
       </div>
     );
@@ -45,7 +60,7 @@ export function MainContent(props: mainContentProps) {
       case 1:
         return <p key="projects">{"This will maybe be a projects page."}</p>;
       case 2:
-        return <p key="find-me">{"Another page???"}</p>;
+        return <Page3Content />;
       default:
         return <Page1Content />;
     }

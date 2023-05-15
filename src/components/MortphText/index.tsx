@@ -1,15 +1,16 @@
 import { CSSProperties, useEffect, useState } from "react";
 import styles from "./MorphText.module.scss";
 
-const MortphText = (props: any) => {
+type Props = {
+  texts: string[];
+};
+
+const MortphText = ({ texts }: Props) => {
   const [text1, setText1] = useState("");
   const [text1Style, setText1Style] = useState<CSSProperties | undefined>();
 
   const [text2, setText2] = useState("");
   const [text2Style, setText2Style] = useState<CSSProperties | undefined>();
-
-  // The strings to morph between. You can change these to anything you want!
-  const texts = ["software", "websites", "apps"];
 
   // Controls the speed of morphing.
   const morphTime = 2;

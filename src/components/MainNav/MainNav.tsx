@@ -60,7 +60,7 @@ export function MainNav(props: MainNavProps) {
               props.setPageNo(2);
             }}
           >
-            Find Me
+            Blog
           </Button>
         </div>
       </nav>

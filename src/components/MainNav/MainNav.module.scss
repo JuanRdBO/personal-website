@@ -135,6 +135,28 @@
   text-align: center;
 }
 
+.mainNav:hover {
+  animation: buttnhover 1s infinite;
+}
+
 .mainNav--end {
   margin-left: auto;
+}
+
+@keyframes buttnhover {
+  0% {
+    transform: translate3d(0, -0px, 0px);
+  }
+  /*   25% {
+      transform: translate3d(0, -5px, 10px);
+    } */
+  50% {
+    transform: translate3d(0, -10px, 20px);
+  }
+  /*   75% {
+      transform: translate3d(0, -5px, 10px);
+    } */
+  100% {
+    transform: translate3d(0, -0px, 0px);
+  }
 }
