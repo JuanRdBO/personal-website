@@ -1,5 +1,4 @@
-import { Grid } from "@mui/material";
-import { CardTilt } from "../Cards/CardTilt";
+import { isMobile } from "react-device-detect";
 import MortphText from "../MortphText";
 
 import styles from "./MainContent.module.scss";
@@ -15,11 +14,17 @@ export function MainContent(props: mainContentProps) {
     return (
       <div
         style={{
-          marginTop: "20px",
+          marginTop: isMobile ? "20%" : "5%",
           width: "100vw",
         }}
       >
-        <div className={styles.mainContent}>
+        <div
+          className={`${styles.mainContent} ${isMobile ?? styles.mobileMainContent}`}
+          style={{
+            marginRight: isMobile ? "5%" : "20%",
+            marginLeft: isMobile ? "5%" : "20%",
+          }}
+        >
           <p className={styles.mainContentHeader}>{"Bio"}</p>
           <div
             className={styles.mainContentSubHeader}
