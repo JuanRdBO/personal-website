@@ -61,19 +61,19 @@
   background-position: -120px 15%, 230px 20%, -100px 3vw;
 }
 
-.findMe,
-.linkFindMe {
+.blog,
+.linkBlog {
   background: var(--dark-peach);
   color: var(--egg-shell);
 }
 
-.linkFindMe:hover {
+.linkBlog:hover {
   animation: buttnhover 1s infinite;
   background-color: var(--purple-brown);
   color: var(--egg-shell);
 }
 
-.findMe h3 {
+.blog h3 {
   background-color: var(--egg-shell);
   background-position: -240px 15%, 260px 25%, -150px 1vw;
 }
@@ -108,7 +108,7 @@
 
 .bio .transitionBio,
 .projects .transitionProjects,
-.findMe .transitionFindMe {
+.blog .transitionFindMe {
   opacity: 1;
 }
 .bio .transitionBio {
@@ -117,7 +117,7 @@
 .projects .transitionProjects {
   transform: scale(1) translateX(-7.5rem);
 }
-.findMe .transitionFindMe {
+.blog .transitionFindMe {
   transform: scale(1) translateX(-15rem);
 }
 

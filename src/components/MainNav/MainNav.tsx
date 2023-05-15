@@ -8,10 +8,6 @@ interface MainNavProps {
 }
 
 export function MainNav(props: MainNavProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   return (
     <div>
       <nav>
@@ -27,6 +23,7 @@ export function MainNav(props: MainNavProps) {
             className={`${styles.mainNav} ${styles.linkBio}`}
             style={{
               minWidth: isMobile ? "33%" : "7.5rem",
+              marginRight: "0px",
             }}
             href="#bio"
             onClick={() => {
@@ -40,8 +37,9 @@ export function MainNav(props: MainNavProps) {
             className={`${styles.mainNav} ${styles.linkProjects}`}
             style={{
               minWidth: isMobile ? "33%" : "7.5rem",
+              marginRight: "0px",
             }}
-            href="#bio"
+            href="#projects"
             onClick={() => {
               console.log(`Styles bio: ${styles.bio} `);
               props.setPageNo(1);
@@ -50,12 +48,12 @@ export function MainNav(props: MainNavProps) {
             Projects
           </Button>
           <Button
-            className={`${styles.mainNav} ${styles.linkFindMe}`}
+            className={`${styles.mainNav} ${styles.linkBlog}`}
             style={{
               minWidth: isMobile ? "33%" : "7.5rem",
-              marginRight: "auto",
+              marginRight: "0px",
             }}
-            href="#bio"
+            href="#blog"
             onClick={() => {
               console.log(`Styles bio: ${styles.bio} `);
               props.setPageNo(2);
