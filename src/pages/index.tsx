@@ -24,6 +24,10 @@ const Home: NextPage = () => {
         setBgStyle(styles.findMe);
         break;
       }
+      default: {
+        setBgStyle(styles.bio);
+        break;
+      }
     }
   }, [pageNo]);
 

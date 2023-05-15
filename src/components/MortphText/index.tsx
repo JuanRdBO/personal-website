@@ -21,11 +21,6 @@ const MortphText = (props: any) => {
   let cooldown = cooldownTime;
 
   useEffect(() => {
-    setText1(texts[textIndex % texts.length]);
-    setText2(texts[(textIndex + 1) % texts.length]);
-  }, []);
-
-  useEffect(() => {
     animate();
     setMounted(true);
   }, []);
@@ -119,9 +114,9 @@ const MortphText = (props: any) => {
         // background: "red",
         display: "flex",
         flexDirection: "row" /* , justify-content: center,align-items: center  */,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
-        width: "30%",
+        width: "0%",
       }}
     >
       <div
@@ -134,15 +129,15 @@ const MortphText = (props: any) => {
           alignItems: "center",
         }}
       >
-        <span id="text1" className={`${styles.text1}`} style={text1Style}>
+        <span id="text1" className={`${styles.text1}`} style={{ ...text1Style, color: "#e26961" }}>
           {text1}
         </span>
-        <span id="text2" className={`${styles.text2}`} style={text2Style}>
+        <span id="text2" className={`${styles.text2}`} style={{ ...text2Style, color: "#e26961" }}>
           {text2}
         </span>
       </div>
 
-      <svg id="filters">
+      <svg id="filters" style={{ position: "absolute", width: 0 }}>
         <defs>
           <filter id="threshold">
             <feColorMatrix
