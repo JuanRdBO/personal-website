@@ -2,6 +2,7 @@ import { isMobile } from "react-device-detect";
 import MortphText from "../MortphText";
 
 import styles from "./MainContent.module.scss";
+import { BioScreen } from "./components";
 
 interface mainContentProps {
   pageNo: number;
@@ -9,45 +10,6 @@ interface mainContentProps {
 
 export function MainContent(props: mainContentProps) {
   const pageNo = props.pageNo;
-
-  const Page1Content = () => {
-    return (
-      <div
-        style={{
-          marginTop: isMobile ? "20%" : "5%",
-          width: "100vw",
-        }}
-      >
-        <div
-          className={`${styles.mainContent} ${isMobile ?? styles.mobileMainContent}`}
-          style={{
-            marginRight: isMobile ? "5%" : "20%",
-            marginLeft: isMobile ? "5%" : "20%",
-          }}
-        >
-          <p className={styles.mainContentHeader}>{"Bio"}</p>
-          <div
-            className={styles.mainContentSubHeader}
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <div style={{ paddingRight: "10px" }}>{"I write"}</div>
-            <MortphText texts={["software", "websites", "apps"]} />
-          </div>
-
-          <div className={styles.mainContentNormalText}>
-            {
-              "I'm Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines from web and app design/ coding, branding and database management/ optimisation."
-            }
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   const Page3Content = () => {
     return (
@@ -73,13 +35,13 @@ export function MainContent(props: mainContentProps) {
   const Content = () => {
     switch (pageNo) {
       case 0:
-        return <Page1Content />;
+        return <BioScreen />;
       case 1:
         return <p key="projects">{"This will maybe be a projects page."}</p>;
       case 2:
         return <Page3Content />;
       default:
-        return <Page1Content />;
+        return <BioScreen />;
     }
   };
 

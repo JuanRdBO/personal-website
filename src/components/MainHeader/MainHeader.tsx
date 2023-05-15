@@ -10,7 +10,10 @@ export function MainHeader() {
         alignItems: "center",
       }}
     >
-      <Tilt className={styles.tiltBox} style={{ display: "grid", justifyItems: "center" }}>
+      <Tilt
+        className={styles.tiltBox}
+        style={{ display: "grid", justifyItems: "center" /* , border: "2px solid red"  */ }}
+      >
         <h3>{"Joan"}</h3>
       </Tilt>
     </div>

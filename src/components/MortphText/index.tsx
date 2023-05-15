@@ -109,17 +109,7 @@ const MortphText = ({ texts }: Props) => {
   }
 
   return (
-    <div
-      style={{
-        // border: "1px solid red",
-        // background: "red",
-        display: "flex",
-        flexDirection: "row" /* , justify-content: center,align-items: center  */,
-        justifyContent: "flex-start",
-        alignItems: "center",
-        width: "0%",
-      }}
-    >
+    <div style={{ width: "0%" }}>
       <div
         id="container"
         className={`${styles.container}`}
