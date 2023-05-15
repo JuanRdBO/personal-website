@@ -16,8 +16,9 @@ export function MainNav(props: MainNavProps) {
     <div>
       <nav>
         <div
+          className={styles.wrapper}
           style={{
-            minWidth: "98vw",
+            // minWidth: "98vw",
             display: "flex",
             flexDirection: "row",
           }}
@@ -25,7 +26,7 @@ export function MainNav(props: MainNavProps) {
           <Button
             className={`${styles.mainNav} ${styles.linkBio}`}
             style={{
-              minWidth: "7.5rem",
+              minWidth: isMobile ? "33%" : "7.5rem",
             }}
             href="#bio"
             onClick={() => {
@@ -38,7 +39,7 @@ export function MainNav(props: MainNavProps) {
           <Button
             className={`${styles.mainNav} ${styles.linkProjects}`}
             style={{
-              minWidth: "7.5rem",
+              minWidth: isMobile ? "33%" : "7.5rem",
             }}
             href="#bio"
             onClick={() => {
@@ -51,7 +52,7 @@ export function MainNav(props: MainNavProps) {
           <Button
             className={`${styles.mainNav} ${styles.linkFindMe}`}
             style={{
-              minWidth: "7.5rem",
+              minWidth: isMobile ? "33%" : "7.5rem",
               marginRight: "auto",
             }}
             href="#bio"
