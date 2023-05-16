@@ -43,7 +43,7 @@
       calc(100px - (var(--active) * 100px)) 0 / 100% 100% no-repeat,
     hsl(var(--hue) calc(var(--active) * 100%) calc(12% - (var(--active) * 8%)));
   background: var(--bg);
-  font-size: 1rem;
+  font-size: calc(0.3vw + 1rem);
   //   font-weight: 500;
   border: 0;
   cursor: pointer;

@@ -20,7 +20,17 @@ const BioScreen = () => {
           marginLeft: isMobile ? "5%" : "20%",
         }}
       >
-        <p className={styles.mainContentHeader}>{"Bio"}</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <p className={styles.mainContentHeader}>{"Bio"}</p>
+          <ContactButton />
+        </div>
         <div
           className={styles.mainContentSubHeader}
           style={{
@@ -38,8 +48,6 @@ const BioScreen = () => {
           I'm Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines from
           web and app design/ coding, branding and database management/ optimisation.
         </div>
-
-        <ContactButton />
       </div>
     </div>
   );
