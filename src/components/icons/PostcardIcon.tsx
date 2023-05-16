@@ -15,8 +15,8 @@ export const PostcardIcon: React.FC<React.SVGAttributes<{}>> = ({
     // xml:space="preserve"
     fill={color}
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_bgCarrier"></g>
+    <g id="SVGRepo_tracerCarrier"></g>
     <g id="SVGRepo_iconCarrier">
       <g>
         <g>

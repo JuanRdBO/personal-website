@@ -45,8 +45,8 @@ const BioScreen = () => {
         </div>
 
         <div className={styles.mainContentNormalText}>
-          I'm Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines from
-          web and app design/ coding, branding and database management/ optimisation.
+          I am Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines
+          from web and app design/ coding, branding and database management/ optimisation.
         </div>
       </div>
     </div>
