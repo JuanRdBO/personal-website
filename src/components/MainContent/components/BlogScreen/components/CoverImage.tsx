@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ImageShadow from "react-image-shadow";
+import "react-image-shadow/assets/index.css";
 
 export default function CoverImage({
   title,
@@ -15,18 +16,6 @@ export default function CoverImage({
 }) {
   if (!src) return <></>;
 
-  const image = (
-    <Image
-      priority
-      src={src}
-      alt={`Cover Image for ${title}`}
-      //   className={cn("rounded-4", {
-      //     rounded: slug,
-      //   })}
-      layout="responsive"
-      width={width}
-      height={height}
-    />
-  );
+  const image = <ImageShadow src={src} width={width} shadowBlur={150} style={{ borderRadius: "10px" }} />;
   return <div>{image}</div>;
 }

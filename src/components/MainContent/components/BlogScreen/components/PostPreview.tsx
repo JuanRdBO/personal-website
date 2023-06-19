@@ -1,10 +1,10 @@
-import Avatar from "./Avatar";
 import DateFormatter from "./DateFormatter";
 import CoverImage from "./CoverImage";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../BlogScreen.module.scss";
 import { isMobile } from "react-device-detect";
+import { Avatar } from "../../BioScreen/components";
 
 export default function PostPreview({
   title,

@@ -36,7 +36,7 @@ const BioScreen = () => {
               alignItems: "center",
             }}
           >
-            <Avatar picture={require("../../../../../public/img/profilePic.png")} />
+            <Avatar picture={require("../../../../../public/img/profilePic.png")} height={100} width={100} />
             <p className={styles.mainContentHeader}>{"Bio"}</p>
           </div>
           <ContactButton />
@@ -55,8 +55,9 @@ const BioScreen = () => {
         </div>
 
         <div className={styles.mainContentNormalText}>
-          I am Joan, a passionate creator living in Mexico City. My work spans across multiple disciplines
-          from web and app design/ coding, branding and database management/ optimisation.
+          I am Joan Ruiz de Bustillo Ohngemach, a passionate creator living in Mexico City. My work spans
+          across multiple disciplines from web and app design/ coding, branding and database management/
+          optimisation.
         </div>
       </div>
     </div>

@@ -9,19 +9,30 @@ const components = { YouTube };
 
 export default function BlogPost({ content, meta }: { content: any; meta: any }) {
   if (!content || !meta) return <div>Loading...</div>;
+
+  const author = {
+    name: "Joan Ruiz de Bustillo Ohngemach",
+    picture: require("../../../../public/img/profilePic.png"),
+  };
+
   return (
     <article>
       <PostHeader
         title={meta.title}
         coverImage={meta.coverImage}
         date={meta.date}
-        author={meta.author}
+        author={author}
         description={meta.description}
       />
-      <div className="container markdown" style={{ maxWidth: "920px" }}>
-        <Prose className="mt-8">
-          <MDXRemote {...content} components={components} />
-        </Prose>
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+        <div
+          className="container markdown"
+          style={{ maxWidth: "1200px", /* border: "1px solid black", */ color: "black" }}
+        >
+          <Prose className="mt-8">
+            <MDXRemote {...content} components={components} />
+          </Prose>
+        </div>
       </div>
     </article>
   );
