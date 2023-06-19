@@ -26,7 +26,7 @@ export default function BlogPost({ content, meta }: { content: any; meta: any })
       />
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
         <div
-          className="container markdown"
+          className="prose prose-stone prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 prose-blockquote:text-black-600 prose-headings:text-black-600 container markdown"
           style={{ maxWidth: "1200px", /* border: "1px solid black", */ color: "black" }}
         >
           <Prose className="mt-8">
