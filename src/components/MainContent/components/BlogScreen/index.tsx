@@ -6,7 +6,9 @@ import { BlogPost, BlogPostsContext } from "../../../providers/PostProvider";
 import MoreStories from "./components/MoreStories";
 
 const BlogScreen = ({ defaultBlogPosts }: { defaultBlogPosts?: BlogPost[] }) => {
-  const { blogPosts } = defaultBlogPosts ? { blogPosts: defaultBlogPosts } : useContext(BlogPostsContext);
+  const blogContext = useContext(BlogPostsContext);
+
+  const blogPosts = defaultBlogPosts ? defaultBlogPosts : blogContext.blogPosts;
 
   return (
     <div
