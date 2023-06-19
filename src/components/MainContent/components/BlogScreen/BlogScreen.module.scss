@@ -1,36 +1,40 @@
-.tiltBox {
-  position: relative;
-  // height: 400px;
-  box-shadow: none !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background: transparent !important;
-  // cursor: pointer;
+.mainContent {
+  margin-left: 20%;
+  margin-right: 20%;
+  max-width: 2000px;
 }
 
-.mintNFTButton {
-  border: none;
-  border-radius: 0px;
-  color: #fff;
-  // cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-family: "Inter", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
+.mainContentHeader {
+  font-family: "Anton", sans-serif;
 
-  background: rgba(139, 130, 130, 0.1);
-  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.301);
+  -webkit-text-fill-color: var(--dark-peach);
+  font-size: calc(5vw + 1rem);
+  margin: 0;
+}
+
+.mainContentSubHeader {
+  font-size: calc(3vw + 1rem);
+  margin: 0;
+
+  flex-direction: "row";
   justify-content: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.212);
-  border-left: 1px solid rgba(255, 255, 255, 0.212);
-  backdrop-filter: blur(5px);
-  transform-style: preserve-3d;
-  transform: perspective(800px);
+  align-items: center;
+}
+
+.mainContentNormalText {
+  font-size: calc(1vw + 1rem);
+  margin: 0;
+
+  flex-direction: "row";
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileMainContent {
+  font-size: 1rem;
+}
+
+.textBrown {
+  color: var(--purple-brown);
+  -webkit-text-fill-color: var(--purple-brown);
 }
