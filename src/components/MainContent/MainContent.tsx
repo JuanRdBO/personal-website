@@ -1,8 +1,4 @@
-import { isMobile } from "react-device-detect";
-import MortphText from "../MortphText";
-
-import styles from "./MainContent.module.scss";
-import { BioScreen } from "./components";
+import { BioScreen, BlogScreen } from "./components";
 
 interface mainContentProps {
   pageNo: number;
@@ -11,27 +7,6 @@ interface mainContentProps {
 export function MainContent(props: mainContentProps) {
   const pageNo = props.pageNo;
 
-  const Page3Content = () => {
-    return (
-      <div
-        style={{
-          marginTop: isMobile ? "20%" : "5%",
-          width: "100vw",
-        }}
-      >
-        <div
-          className={`${styles.mainContent} ${isMobile ?? styles.mobileMainContent}`}
-          style={{
-            marginRight: isMobile ? "5%" : "20%",
-            marginLeft: isMobile ? "5%" : "20%",
-          }}
-        >
-          <p className={`${styles.mainContentHeader} ${styles.textBrown}`}>{"Blog"}</p>
-        </div>
-      </div>
-    );
-  };
-
   const Content = () => {
     switch (pageNo) {
       case 0:
@@ -39,7 +14,7 @@ export function MainContent(props: mainContentProps) {
       case 1:
         return <p key="projects">{"This will maybe be a projects page."}</p>;
       case 2:
-        return <Page3Content />;
+        return <BlogScreen />;
       default:
         return <BioScreen />;
     }
