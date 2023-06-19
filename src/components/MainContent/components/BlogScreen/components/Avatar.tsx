@@ -4,6 +4,9 @@ export default function Avatar({ name, picture, link }: { name: string; picture:
   const loaderProp = ({ src }: { src: any }) => {
     return src;
   };
+
+  if (!picture) return <></>;
+
   return (
     <a>
       <div className="d-flex align-items-center">

@@ -8,11 +8,13 @@ import styles from "../styles/Home.module.scss";
 import { getPosts } from "../components/MainContent/components/BlogScreen/utils";
 import BlogPostsProvider from "../components/providers/PostProvider";
 
-const Home = ({ allPosts }: { allPosts: any }) => {
+export const Home = ({ allPosts, defaultPage = 0 }: { allPosts: any; defaultPage?: number }) => {
   console.log("allPosts", allPosts);
 
-  const [pageNo, setPageNo] = useState(0);
+  const [pageNo, setPageNo] = useState(defaultPage);
   const [bgStyle, setBgStyle] = useState("");
+
+  console.log("pageNo", pageNo);
 
   useEffect(() => {
     switch (pageNo) {

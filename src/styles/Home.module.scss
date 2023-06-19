@@ -28,7 +28,7 @@
   background: var(--purple-brown);
   background-color: var(--purple-brown);
 }
-.bio h3 {
+.bio h5 {
   background-color: var(--dark-peach);
 }
 
@@ -36,7 +36,7 @@
 .linkProjects {
   background: var(--egg-shell);
 }
-.projects h3 {
+.projects h5 {
   background-color: var(--dark-peach);
   background-position: -120px 15%, 230px 20%, -100px 3vw;
 }
@@ -45,7 +45,7 @@
 .linkFindMe {
   background: var(--dark-peach);
 }
-.findMe h3 {
+.findMe h5 {
   background-color: var(--egg-shell);
   background-position: -240px 15%, 260px 25%, -150px 1vw;
 }
@@ -64,11 +64,14 @@
   height: 100vh;
   transform: scale(0.1);
   transform-origin: 0 0;
+  border-bottom-right-radius: 2%;
+  border-bottom-left-radius: 2%;
 }
 .transitionBio {
   left: 0;
   background: var(--purple-brown);
 }
+
 .transitionProjects {
   left: 7.5rem;
   background: var(--egg-shell);

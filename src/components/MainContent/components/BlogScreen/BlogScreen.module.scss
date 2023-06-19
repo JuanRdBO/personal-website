@@ -30,6 +30,15 @@
   align-items: center;
 }
 
+.mainContentSmallText {
+  font-size: calc(1vw + 0.8rem);
+  margin: 0;
+
+  flex-direction: "row";
+  justify-content: center;
+  align-items: center;
+}
+
 .mobileMainContent {
   font-size: 1rem;
 }

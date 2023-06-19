@@ -1,5 +1,6 @@
 import Tilt from "react-vanilla-tilt";
 import styles from "./MainHeader.module.scss";
+import globalStyles from "../../styles/Home.module.scss";
 
 export function MainHeader() {
   return (
@@ -14,7 +15,7 @@ export function MainHeader() {
         className={styles.tiltBox}
         style={{ display: "grid", justifyItems: "center" /* , border: "2px solid red"  */ }}
       >
-        <h3>{"Joan"}</h3>
+        <h5>{"Joan"}</h5>
       </Tilt>
     </div>
   );

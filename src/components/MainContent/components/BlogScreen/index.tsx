@@ -2,11 +2,11 @@ import { isMobile } from "react-device-detect";
 
 import styles from "./BlogScreen.module.scss";
 import { memo, useContext } from "react";
-import { BlogPostsContext } from "../../../providers/PostProvider";
+import { BlogPost, BlogPostsContext } from "../../../providers/PostProvider";
 import MoreStories from "./components/MoreStories";
 
-const BlogScreen = () => {
-  const { blogPosts } = useContext(BlogPostsContext);
+const BlogScreen = ({ defaultBlogPosts }: { defaultBlogPosts?: BlogPost[] }) => {
+  const { blogPosts } = defaultBlogPosts ? { blogPosts: defaultBlogPosts } : useContext(BlogPostsContext);
 
   return (
     <div

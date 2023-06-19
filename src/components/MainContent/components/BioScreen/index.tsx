@@ -2,7 +2,7 @@ import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import MortphText from "../../../MortphText";
 import styles from "../../MainContent.module.scss";
-import { ContactButton } from "./components";
+import { Avatar, ContactButton } from "./components";
 
 const BioScreen = () => {
   return (
@@ -28,7 +28,17 @@ const BioScreen = () => {
             alignItems: "center",
           }}
         >
-          <p className={styles.mainContentHeader}>{"Bio"}</p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Avatar picture={require("../../../../../public/img/profilePic.png")} />
+            <p className={styles.mainContentHeader}>{"Bio"}</p>
+          </div>
           <ContactButton />
         </div>
         <div
