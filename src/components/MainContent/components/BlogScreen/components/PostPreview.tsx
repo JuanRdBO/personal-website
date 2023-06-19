@@ -20,7 +20,7 @@ export default function PostPreview({
   slug: string;
 }) {
   return (
-    <div className="col-md-6 mb-md-0 my-6">
+    <div className="col-md-6 mb-md-0 my-6" style={{ border: "1px solid black", borderRadius: "10px" }}>
       <div className="mb-6">
         <Link href={`/blog/${slug}`}>
           {/* <div className=" flex justify-center items-center" style={{ cursor: "pointer" }}> */}
@@ -35,21 +35,23 @@ export default function PostPreview({
           {/* </div> */}
         </Link>
       </div>
-      <div className="small mb-3">
-        <DateFormatter dateString={date} />
+      <div className="mx-2">
+        <div className="small mb-3">
+          <DateFormatter dateString={date} />
+        </div>
+        <div className="fs-4">
+          <Link href={`/blog/${slug}`}>
+            <a className="text-reset">{title}</a>
+          </Link>
+        </div>
+        <div
+          className="text-lg leading-relaxed mb-4"
+          style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}
+        >
+          {excerpt}
+        </div>
+        {author && <Avatar name={author.name} picture={author.picture} link={author.link} />}
       </div>
-      <div className="fs-4">
-        <Link href={`/blog/${slug}`}>
-          <a className="text-reset">{title}</a>
-        </Link>
-      </div>
-      <div
-        className="text-lg leading-relaxed mb-4"
-        style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}
-      >
-        {excerpt}
-      </div>
-      {author && <Avatar name={author.name} picture={author.picture} link={author.link} />}
     </div>
   );
 }
