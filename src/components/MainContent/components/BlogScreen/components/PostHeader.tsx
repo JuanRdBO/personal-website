@@ -4,7 +4,7 @@ import PostTitle from "./PostTitle";
 import Head from "next/head";
 import { Avatar } from "../../BioScreen/components";
 
-export default function PostHeader({
+const PostHeader = ({
   title,
   coverImage,
   date,
@@ -18,9 +18,9 @@ export default function PostHeader({
   date: string;
   author?: { name: string; picture: string; link?: string };
   slug?: string;
-}) {
+}) => {
   return (
-    <div>
+    <div style={{ width: "100vw" /* border: "2px solid red"  */ }}>
       <div
         style={{
           backgroundColor: "#C9CBD2",
@@ -63,11 +63,13 @@ export default function PostHeader({
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "space-between",
-            alignItems: "space-between",
+            alignItems: "center",
             color: "black",
-            width: "105%",
+            width: "100%",
+            marginTop: "2rem",
+            // border: "1px solid black",
           }}
         >
           {author?.picture && (
@@ -75,8 +77,9 @@ export default function PostHeader({
               style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 alignItems: "center",
+                // border: "1px solid red",
               }}
             >
               <Avatar name={author.name} picture={author.picture} height={30} width={30} />
@@ -87,4 +90,6 @@ export default function PostHeader({
       </div>
     </div>
   );
-}
+};
+
+export default PostHeader;

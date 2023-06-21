@@ -1,0 +1,69 @@
+//Blog posts markdown style
+.markdown {
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  h1 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  p:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  a {
+    transition: all 0.25s;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ul {
+    margin-bottom: 0px;
+  }
+  ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+  }
+  ol li {
+    counter-increment: my-awesome-counter;
+    margin-bottom: 0.5rem;
+  }
+  ol li::before {
+    content: counter(my-awesome-counter) ". ";
+    font-weight: bold;
+  }
+
+  img {
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+  blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  blockquote p {
+    display: inline;
+  }
+}

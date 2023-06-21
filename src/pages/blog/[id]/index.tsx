@@ -6,8 +6,7 @@ import path from "path";
 import { PostHeader, Prose, YouTube } from "../../../components/MainContent/components/BlogScreen/components";
 
 const components = { YouTube };
-
-export default function BlogPost({ content, meta }: { content: any; meta: any }) {
+const BlogPost = ({ content, meta }: { content: any; meta: any }) => {
   if (!content || !meta) return <div>Loading...</div>;
 
   const author = {
@@ -24,19 +23,36 @@ export default function BlogPost({ content, meta }: { content: any; meta: any })
         author={author}
         description={meta.description}
       />
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div
-          className="prose prose-stone prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 prose-blockquote:text-black-600 prose-headings:text-black-600 container markdown"
-          style={{ maxWidth: "1200px", /* border: "1px solid black", */ color: "black" }}
+          className="prose container markdown"
+          style={{
+            maxWidth: "1200px",
+            // border: "1px solid black",
+            color: "black",
+            textAlign: "justify",
+            paddingRight: "5%",
+            paddingLeft: "5%",
+          }}
         >
-          <Prose className="mt-8">
+          <Prose className="mt-0">
             <MDXRemote {...content} components={components} />
           </Prose>
         </div>
       </div>
     </article>
   );
-}
+};
+
+export default BlogPost;
+
 export async function getStaticProps({ params }: { params: any }) {
   // const { formattedPosts } = await getAllMediumPosts();
   // const { formattedPosts: mediumPosts } = await getAllMediumPosts();
