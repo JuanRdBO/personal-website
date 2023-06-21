@@ -59,7 +59,10 @@ export default function Avatar({
             loader={loaderProp}
           />
         </div>
-        <div className={`${styles.mainContentNormalText}`} style={{ color: "black", fontSize: nameFontSize }}>
+        <div
+          className={`${styles.mainContentNormalText}`}
+          style={{ color: "black", fontSize: nameFontSize, textAlign: "center" }}
+        >
           {name}
         </div>
       </div>

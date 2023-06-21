@@ -87,7 +87,7 @@ const PostHeader = ({
                 picture={author.picture}
                 height={30}
                 width={30}
-                nameFontSize={"1.5rem"}
+                nameFontSize={"1rem"}
               />
             </div>
           )}
