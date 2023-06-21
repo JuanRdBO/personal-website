@@ -82,7 +82,13 @@ const PostHeader = ({
                 // border: "1px solid red",
               }}
             >
-              <Avatar name={author.name} picture={author.picture} height={30} width={30} />
+              <Avatar
+                name={author.name}
+                picture={author.picture}
+                height={30}
+                width={30}
+                nameFontSize={"1.5rem"}
+              />
             </div>
           )}
           <DateFormatter dateString={date} />

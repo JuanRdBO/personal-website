@@ -9,7 +9,7 @@ export default function Avatar({
   link,
   width = 256,
   height = 256,
-  nameFontSize = "1.5rem",
+  nameFontSize = 24,
 }: {
   name?: string;
   picture: string;
@@ -34,18 +34,19 @@ export default function Avatar({
           justifyContent: "center",
           alignItems: "center",
           cursor: "pointer",
-          width: "100vw",
+          // width: "100vw",
         }}
       >
         <div
           // className="flex-shrink-0 size-40 rounded-circle me-3"
+          className="mr-0 md:mr-2"
           style={{
             height: height,
             width: width,
             borderRadius: "50%",
             overflow: "hidden",
-            marginLeft: "2rem",
-            marginRight: "2rem",
+            // marginLeft: "2rem",
+            // marginRight: "2",
           }}
         >
           <Image
@@ -58,10 +59,7 @@ export default function Avatar({
             loader={loaderProp}
           />
         </div>
-        <div
-          className={styles.mainContentNormalText}
-          style={{ color: "black", paddingLeft: "0px", fontSize: nameFontSize }}
-        >
+        <div className={`${styles.mainContentNormalText}`} style={{ color: "black", fontSize: nameFontSize }}>
           {name}
         </div>
       </div>
